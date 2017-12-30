@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  let battle = new Battle()
   $('#findPlayers').on('click', function(e) {
     let player1Name = $('#player1').val();
     let player2Name = $('#player2').val();
@@ -15,29 +16,27 @@ $(document).ready(function(){
         url: 'https://api.github.com/users/'+player2Name,
         data: gitHubAccess
       }).done(function(player2){
+        $('#findPlayersForm').hide()
           $('#battle').html(`
+          ${battle.fight(player1, player2)}
           <div class="row">
-            <div class="col-xs-5 card">
+            <div class="col-md-5 card">
               <h2 class="card-header">
                 ${player1.name}
               </h2>
               <div class="card-body">
-                <div class="col-s3">
-                  <img style="width:100%" src="${player1.avatar_url}">
-                </div>
+                <img style="width:100%" src="${player1.avatar_url}">
               </div>
             </div>
-            <div class="col-xs-2">
-              <h1>Vs</h1>
+            <div class="col-md-2">
+              <h1>Versus</h1>
             </div>
-            <div class="col-xs-5 card">
+            <div class="col-md-5 card">
               <h2 class="card-header">
                 ${player2.name}
               </h2>
               <div class="card-body">
-                <div class="col-s3">
-                  <img style="width:100%" src="${player2.avatar_url}">
-                </div>
+                <img style="width:100%" src="${player2.avatar_url}">
               </div>
             </div>
           </div>

@@ -1,3 +1,24 @@
 .row {
-  margin: auto
+  margin: auto;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+#fight {
+  display: none;
+}
+
+#winner, #battle {
+  text-align: center;
+}
+
+.card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+img {
+  border-radius: 12px;
 }
